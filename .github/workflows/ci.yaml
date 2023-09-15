@@ -20,5 +20,12 @@ jobs:
       with:
         python-version: '3.11'
 
+    - name: TFSec | Install
+      run: |
+        curl -s https://raw.githubusercontent.com/aquasecurity/tfsec/master/scripts/install_linux.sh | bash
+
+    - name: TFLint | Install
+      uses: terraform-linters/setup-tflint@v3
+
     - name: Pre-Commit | Run
       uses: pre-commit/action@v3.0.0
