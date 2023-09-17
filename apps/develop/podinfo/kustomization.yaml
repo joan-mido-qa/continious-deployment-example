@@ -6,3 +6,6 @@ resources:
 - namespace.yaml
 - helmrepository.yaml
 - helmrelease.yaml
+- imagepolicy.yaml
+- imagerepository.yaml
+- imageautoupdate.yaml

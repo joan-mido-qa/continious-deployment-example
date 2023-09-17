@@ -24,3 +24,5 @@ spec:
         - grafana.local
     prometheus:
       enabled: true
+      nodeExporter:
+        enabled: true

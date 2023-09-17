@@ -1,0 +1,8 @@
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImageRepository
+metadata:
+  name: podinfo-chart
+spec:
+  image: ghcr.io/stefanprodan/charts/podinfo
+  interval: 5m
