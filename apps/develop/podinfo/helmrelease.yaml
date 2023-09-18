@@ -1,3 +1,4 @@
+---
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
@@ -7,7 +8,7 @@ spec:
   chart:
     spec:
       chart: podinfo
-      version: 6.4.1 # {"$imagepolicy": "podinfo:podinfo-chart:tag"}
+      version: 6.3.5 # {"$imagepolicy": "podinfo:podinfo-chart:tag"}
       sourceRef:
         kind: HelmRepository
         name: podinfo
@@ -19,3 +20,5 @@ spec:
     ingress:
       enabled: true
       className: nginx
+    hpa:
+      enabled: true

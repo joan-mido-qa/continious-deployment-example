@@ -1,0 +1,28 @@
+---
+apiVersion: flagger.app/v1beta1
+kind: MetricTemplate
+metadata:
+  name: podinfo-request-success-rate
+spec:
+  provider:
+    type: prometheus
+    address: http://loki-stack-prometheus-server.loki-stack:80
+  query: |
+    100 - sum(
+        rate(
+            http_requests_total{
+              app_kubernetes_io_name="podinfo",
+              namespace="{{ namespace }}",
+              status!~"5.*"
+            }[{{ interval }}]
+        )
+    )
+    /
+    sum(
+        rate(
+            http_requests_total{
+              app_kubernetes_io_name="podinfo",
+              namespace="{{ namespace }}",
+            }[{{ interval }}]
+        )
+    ) * 100

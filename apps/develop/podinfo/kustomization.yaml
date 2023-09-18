@@ -9,3 +9,5 @@ resources:
 - imagepolicy.yaml
 - imagerepository.yaml
 - imageautoupdate.yaml
+- canary.yaml
+- metrictemplate.yaml

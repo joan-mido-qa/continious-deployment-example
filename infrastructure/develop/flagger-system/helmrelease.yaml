@@ -5,7 +5,6 @@ metadata:
   name: flagger
 spec:
   interval: 1h
-  releaseName: flagger
   install:
     crds: CreateReplace
   upgrade:
@@ -13,10 +12,23 @@ spec:
   chart:
     spec:
       chart: flagger
-      version: 1.x
+      version: 1.x.x
       interval: 6h
       sourceRef:
         kind: HelmRepository
         name: flagger
-      verify:
-        provider: cosign
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: flagger-loadtester
+spec:
+  interval: 1h
+  chart:
+    spec:
+      chart: loadtester
+      version: 0.x.x
+      interval: 6h
+      sourceRef:
+        kind: HelmRepository
+        name: flagger
