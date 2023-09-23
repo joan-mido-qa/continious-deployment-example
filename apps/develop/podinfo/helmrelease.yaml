@@ -7,7 +7,7 @@ spec:
   chart:
     spec:
       chart: podinfo
-      version: 6.4.1 # {"$imagepolicy": "podinfo:podinfo-chart:tag"}
+      version: 6.5.0 # {"$imagepolicy": "podinfo:podinfo-chart:tag"}
       sourceRef:
         kind: HelmRepository
         name: podinfo
